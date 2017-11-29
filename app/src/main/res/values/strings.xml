@@ -48,7 +48,7 @@
     <string name="pref_title_iat_show">显示听写界面</string>
 
     <string name="pref_key_translate">translate</string>
-    
+
     <string name="my_service_order">服务订单</string>
     <string name="my_shop_order">商品订单</string>
     <string name="my_evaluate">我的评价</string>

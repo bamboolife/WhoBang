@@ -40,7 +40,10 @@ import static com.whombang.app.features.shop.fragment.ShopFragment.Config.GRID_V
 /**
  * 个人中心
  */
-public class MyCenterFragment extends BaseFragment implements ItemOnClickListener, BannerClickListener {
+public class MyCenterFragment extends BaseFragment {
+    private static final int TYPE_VIEW_HEAD=0;
+    private static final int TYPE_VIEW_LIST=1;
+    private static final int TYPE_VIEW_BOTTOM=2;
     @BindView(R.id.work_recyclerview)
     RecyclerView mRecyclerView;
     List<CenterEntity> entityList;
@@ -67,44 +70,21 @@ public class MyCenterFragment extends BaseFragment implements ItemOnClickListene
         RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
         mRecyclerView.setRecycledViewPool(viewPool);
         viewPool.setMaxRecycledViews(0, 10);
-
+        //1头部
         DelegateAdapter delegateAdapter = new DelegateAdapter(layoutManager, true);
         mRecyclerView.setAdapter(delegateAdapter);
 
-        BaseDelegateAdapter newsAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
-                , R.layout.item_work_banner, 1, NEWS_VIEW_TYPE) {
+        BaseDelegateAdapter headAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
+                , R.layout.item_work_banner, 1, TYPE_VIEW_HEAD) {
             @Override
             public void onBindViewHolder(BaseViewHolder holder, int position) {
                 super.onBindViewHolder(holder, position);
 
             }
         };
-        mAdapters.add(newsAdapter);
-//
-//        //个人功能大标题
-//        LinearLayoutHelper personTitleHelper = new LinearLayoutHelper();
-//        personTitleHelper.setItemCount(1);
-//        helperList.add(personTitleHelper);
-
-        //功能模块，主要为九宫格
-//        GridLayoutHelper personGridHelper = new GridLayoutHelper(3);
-//        personGridHelper.setAutoExpand(false);
-//        personGridHelper.setWeights(new float[]{33, 33, 33});
-//        personGridHelper.setAspectRatio(3);
-//        personGridHelper.setItemCount(oneFuncs.size());
-        //功能列表
-//        LinearLayoutHelper functionHelper = new LinearLayoutHelper();
-//        functionHelper.setItemCount(3);
-//        helperList.add(functionHelper);
-//
-//        LinearLayoutHelper personTitleHelper = new LinearLayoutHelper();
-//        personTitleHelper.setItemCount(1);
-//        helperList.add(personTitleHelper);
-//        layoutManager.setLayoutHelpers(helperList);
-//        workAdapter = new MyCenterAdapter(layoutManager, oneFuncs, twoFuncs, this, this);
-//
-//        myCenterRecyclerView.setAdapter(workAdapter);
-        BaseDelegateAdapter girdAdapter = new BaseDelegateAdapter(mActivity,  new LinearLayoutHelper(), R.layout.item_work_func
+        mAdapters.add(headAdapter);
+        //2功能列表
+        BaseDelegateAdapter functionAdapter = new BaseDelegateAdapter(mActivity,  new LinearLayoutHelper(), R.layout.item_work_func
                 , 7, GRID_VIEW_TYPE) {
             @Override
             public void onBindViewHolder(BaseViewHolder holder, final int position) {
@@ -123,9 +103,43 @@ public class MyCenterFragment extends BaseFragment implements ItemOnClickListene
                  }else{
                      line_top.setVisibility(View.GONE);
                  }
+                 holder.getConvertView().setOnClickListener(new View.OnClickListener() {
+                     @Override
+                     public void onClick(View v) {
+                         switch (position){
+                             case 0:
+                                 ARouter.getInstance().build("/order/service").navigation();
+                                 break;
+                             case 1:
+                                 ARouter.getInstance().build("/order/shop").navigation();
+                                 break;
+                             case 2:
+                                 ARouter.getInstance().build("/my/evaluate").navigation();
+                                 break;
+
+                             case 3:
+                                 ARouter.getInstance().build("/my/station").navigation();
+                                 break;
+
+                             case 4:
+                                 ARouter.getInstance().build("/my/userinformation").navigation();
+                                 break;
+
+                             case 5:
+                                 ARouter.getInstance().build("/my/setting").navigation();
+                                 break;
+
+                             case 6:
+                                 ARouter.getInstance().build("/my/about").navigation();
+                                 break;
+                         }
+                     }
+                 });
+
             }
+
         };
-        mAdapters.add(girdAdapter);
+        mAdapters.add(functionAdapter);
         //设置适配器
         delegateAdapter.setAdapters(mAdapters);
     }
@@ -134,17 +148,9 @@ public class MyCenterFragment extends BaseFragment implements ItemOnClickListene
     public void doBusiness() {
 
     }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-
-    @Override
-    public void onItemClick(View view, int postion) {
-        ARouter.getInstance().build("/address/manager").navigation();
-    }
-
+    /**
+     * 添加本地数据
+     */
     private void initData() {
         entityList=new LinkedList<>();
         CenterEntity entity0=new CenterEntity(getString(R.string.my_service_order),true,false);
@@ -153,7 +159,7 @@ public class MyCenterFragment extends BaseFragment implements ItemOnClickListene
         CenterEntity entity3=new CenterEntity(getString(R.string.my_station),true,true);
         CenterEntity entity4=new CenterEntity(getString(R.string.my_user_information),false,false);
         CenterEntity entity5=new CenterEntity(getString(R.string.my_setting),false,false);
-        CenterEntity entity6=new CenterEntity(getString(R.string.my_about),false,true);
+        CenterEntity entity6=new CenterEntity(getString(R.string.my_about),false,false);
          entityList.add(entity0);
          entityList.add(entity1);
          entityList.add(entity2);

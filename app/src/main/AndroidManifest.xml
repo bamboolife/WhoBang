@@ -60,7 +60,14 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".features.shop.activity.CommodityDetailsActivity" />
         <activity android:name=".features.mycenter.activity.NewlyAddressActivity" />
-        <activity android:name=".features.mycenter.activity.AddressManagerActivity"/>
+        <activity android:name=".features.mycenter.activity.AddressManagerActivity" />
+        <activity android:name=".features.mycenter.activity.MyOrderActivity" />
+        <activity android:name=".features.mycenter.activity.ShopOrderActivity" />
+        <activity android:name=".features.mycenter.activity.MyEvaluateActivity" />
+        <activity android:name=".features.mycenter.activity.StationActivity" />
+        <activity android:name=".features.mycenter.activity.UserInformationActivity" />
+        <activity android:name=".features.mycenter.activity.AboutActivity" />
+        <activity android:name=".features.mycenter.activity.CommonSettingActivity"></activity>
     </application>
 
 </manifest>
