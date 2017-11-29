@@ -58,7 +58,9 @@
             android:name=".features.sendtask.StationServiceActivity"
             android:label="@string/title_activity_station_service"
             android:theme="@style/AppTheme" />
-        <activity android:name=".features.shop.activity.CommodityDetailsActivity"></activity>
+        <activity android:name=".features.shop.activity.CommodityDetailsActivity" />
+        <activity android:name=".features.mycenter.activity.NewlyAddressActivity" />
+        <activity android:name=".features.mycenter.activity.AddressManagerActivity"/>
     </application>
 
 </manifest>

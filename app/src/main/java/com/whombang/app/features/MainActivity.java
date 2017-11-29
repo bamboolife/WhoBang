@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -40,8 +41,8 @@ public class MainActivity extends BaseActivity {
     /**
      * 呼叫器tab键
      */
-    @BindView(R.id.tab_call_iv)
-    ImageView imgCall;
+    @BindView(R.id.fab_call)
+    ImageView fabCall;
 
     @Override
     public void initData(Bundle bundle) {
@@ -58,16 +59,16 @@ public class MainActivity extends BaseActivity {
         SystemBarManager.translucentStatusBar(this,false);
         mNavigateTabBar.onRestoreInstanceState(savedInstanceState);
         mNavigateTabBar.addTab(HomeFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_home, R.mipmap.navigate_tab_home_selected, getString(R.string.tab_txt_home)));
-        mNavigateTabBar.addTab(ShopFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_city, R.mipmap.navigate_tab_city_selected, getString(R.string.tab_txt_shop)));
-        mNavigateTabBar.addTab(null, new NavigateTabBar.TabParam(0, 0, getString(R.string.tab_txt_call)));
-        mNavigateTabBar.addTab(ServiceFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_message, R.mipmap.navigate_tab_message_selected, getString(R.string.tab_txt_service)));
-        mNavigateTabBar.addTab(MyCenterFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_person, R.mipmap.navigate_tab_person_selected, getString(R.string.tab_txt_my)));
+        mNavigateTabBar.addTab(ShopFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_shop, R.mipmap.navigate_tab_shop_selected, getString(R.string.tab_txt_shop)));
+        mNavigateTabBar.addTab(null, new NavigateTabBar.TabParam(0, 0, ""));
+        mNavigateTabBar.addTab(ServiceFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_service, R.mipmap.navigate_tab_service_selected, getString(R.string.tab_txt_service)));
+        mNavigateTabBar.addTab(MyCenterFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_my, R.mipmap.navigate_tab_my_selected, getString(R.string.tab_txt_my)));
 
     }
 
-    @OnClick(R.id.tab_call_iv)
+    @OnClick(R.id.fab_call)
     public void onBeeper() {
-        PopMenuView.getInstance().show(MainActivity.this, imgCall);
+        PopMenuView.getInstance().show(MainActivity.this, fabCall);
         PopMenuView.getInstance().setListener(new PopMenuView.PopupMenuListener() {
             @SuppressLint("MissingPermission")
             @Override

@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/iv"
-    android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:paddingBottom="1px"
-    android:paddingRight="1px"
-    android:scaleType="fitCenter">
 
-</ImageView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:paddingBottom="1px"
+        android:paddingRight="1px"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="商品名字"
+        android:gravity="center"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:text="商品的描述"
+        android:gravity="center"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/main_tabbar"
+        android:layout_below="@+id/main_container"
+        android:background="#f1f1f1" />
+</LinearLayout>
+

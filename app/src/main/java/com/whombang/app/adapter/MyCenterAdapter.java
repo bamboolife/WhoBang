@@ -3,6 +3,7 @@ package com.whombang.app.adapter;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ public class MyCenterAdapter extends VirtualLayoutAdapter{
     int oneFuncs, twoFuncs;
     public List<MyCenterEntity> oneFunctions;
     public List<MyCenterEntity> twoFunctions;
-
+    int totalCount = 0;
     public ItemOnClickListener listener;
 
     public BannerClickListener bannerClickListener;
@@ -80,20 +81,20 @@ public class MyCenterAdapter extends VirtualLayoutAdapter{
         } else if (holder instanceof FuncViewHolder) {
             if (position > 1 && position < 2 + oneFuncs) {
 
-                MyCenterEntity fb = oneFunctions.get(position - 2);
-                ((FuncViewHolder) holder).name.setText(fb.name);
-                ((FuncViewHolder) holder).image.setImageResource(fb.image);
+//                MyCenterEntity fb = oneFunctions.get(position - 2);
+//                ((FuncViewHolder) holder).name.setText(fb.name);
+//                ((FuncViewHolder) holder).image.setImageResource(fb.image);
             } else if (position > 2 + oneFuncs) {
-                MyCenterEntity fb = twoFunctions.get(position - 2 - 1 - oneFunctions.size());
-                ((FuncViewHolder) holder).name.setText(fb.name);
-                ((FuncViewHolder) holder).image.setImageResource(fb.image);
+//                MyCenterEntity fb = twoFunctions.get(position - 2 - 1 - oneFunctions.size());
+//                ((FuncViewHolder) holder).name.setText(fb.name);
+//                ((FuncViewHolder) holder).image.setImageResource(fb.image);
             }
         }
     }
 
     @Override
     public int getItemCount() {
-        int totalCount = 0;
+
 
         List<LayoutHelper> helpers = getLayoutHelpers();
         if (helpers == null) {
@@ -107,9 +108,10 @@ public class MyCenterAdapter extends VirtualLayoutAdapter{
 
     @Override
     public int getItemViewType(int position) {
+        Log.i("wwwww","position="+position);
         if (position == 0) {
             return BANNER_VIEW_TYPE;
-        } else if (position == 1 || position == (2 + oneFuncs)) {
+        } else if (position ==5) {
             return DIVIDER_VIEW_TYPE;
         } else {
             return FUN_VIEW_TYPE;

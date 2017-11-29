@@ -3,6 +3,7 @@ package com.whombang.app.common.base;
 import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
  * Description:
@@ -15,6 +16,7 @@ public class BaseApplocation extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fresco.initialize(this);
         initArouter();
     }
 

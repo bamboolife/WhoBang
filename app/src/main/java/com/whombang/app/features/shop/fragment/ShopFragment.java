@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.alibaba.android.vlayout.layout.GridLayoutHelper;
@@ -44,7 +45,7 @@ public class ShopFragment extends BaseFragment {
     RecyclerView mRecyclerView;
     private List<DelegateAdapter.Adapter> mAdapters; //存放各个模块的适配器
 
-    interface Config {
+    public interface Config {
         //不同item必须不同的viewtype
         int BANNER_VIEW_TYPE = 1;
         int MENU_VIEW_TYPE = 2;
@@ -156,6 +157,7 @@ public class ShopFragment extends BaseFragment {
         };
         mAdapters.add(newsAdapter);
 
+
         GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);
         gridLayoutHelper.setMargin(0, 0, 0, 0);
         gridLayoutHelper.setPadding(0, 0, 0, 0);
@@ -176,6 +178,7 @@ public class ShopFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(mActivity, "item" + position, Toast.LENGTH_SHORT).show();
+                        ARouter.getInstance().build("/shop/details").navigation();
                     }
                 });
             }
