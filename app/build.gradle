@@ -65,4 +65,5 @@ dependencies {
     // For WebP support, including animated WebP
     compile 'com.facebook.fresco:animated-webp:1.5.0'
     compile 'com.facebook.fresco:webpsupport:1.5.0'
+    compile 'com.gxz.pagerslidingtabstrip:library:1.3'
 }

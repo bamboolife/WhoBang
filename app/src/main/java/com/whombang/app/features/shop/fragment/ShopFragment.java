@@ -119,43 +119,52 @@ public class ShopFragment extends BaseFragment {
         //把轮播器添加到集合
         mAdapters.add(bannerAdapter);
         //news
-        BaseDelegateAdapter newsAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
-                , R.layout.vlayout_news, 1, NEWS_VIEW_TYPE) {
+//        BaseDelegateAdapter newsAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
+//                , R.layout.vlayout_news, 1, NEWS_VIEW_TYPE) {
+//            @Override
+//            public void onBindViewHolder(BaseViewHolder holder, int position) {
+//                super.onBindViewHolder(holder, position);
+//                MarqueeView marqueeView1 = holder.getView(R.id.marqueeView1);
+//                MarqueeView marqueeView2 = holder.getView(R.id.marqueeView2);
+//
+//                List<String> info1 = new ArrayList<>();
+//                info1.add("鸡蛋便宜啦，鸡蛋便宜啦，惊爆价！");
+//                info1.add("鸡蛋便宜啦，鸡蛋便宜啦，惊爆价！！");
+//
+//                List<String> info2 = new ArrayList<>();
+//                info2.add("全套服务还免费，看来看啊！");
+//                info2.add("全套服务还免费，看来看啊！！");
+//
+//                marqueeView1.startWithList(info1);
+//                marqueeView2.startWithList(info2);
+//                // 在代码里设置自己的动画
+//                marqueeView1.startWithList(info1, R.anim.anim_bottom_in, R.anim.anim_top_out);
+//                marqueeView2.startWithList(info2, R.anim.anim_bottom_in, R.anim.anim_top_out);
+//
+//                marqueeView1.setOnItemClickListener(new MarqueeView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(int position, TextView textView) {
+//                        Toast.makeText(mActivity, textView.getText().toString(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                marqueeView2.setOnItemClickListener(new MarqueeView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(int position, TextView textView) {
+//                        Toast.makeText(mActivity, textView.getText().toString(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//        };
+//        mAdapters.add(newsAdapter);
+        BaseDelegateAdapter titleAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
+                , R.layout.wb_shop_title_layout, 1, NEWS_VIEW_TYPE) {
             @Override
             public void onBindViewHolder(BaseViewHolder holder, int position) {
                 super.onBindViewHolder(holder, position);
-                MarqueeView marqueeView1 = holder.getView(R.id.marqueeView1);
-                MarqueeView marqueeView2 = holder.getView(R.id.marqueeView2);
 
-                List<String> info1 = new ArrayList<>();
-                info1.add("鸡蛋便宜啦，鸡蛋便宜啦，惊爆价！");
-                info1.add("鸡蛋便宜啦，鸡蛋便宜啦，惊爆价！！");
-
-                List<String> info2 = new ArrayList<>();
-                info2.add("全套服务还免费，看来看啊！");
-                info2.add("全套服务还免费，看来看啊！！");
-
-                marqueeView1.startWithList(info1);
-                marqueeView2.startWithList(info2);
-                // 在代码里设置自己的动画
-                marqueeView1.startWithList(info1, R.anim.anim_bottom_in, R.anim.anim_top_out);
-                marqueeView2.startWithList(info2, R.anim.anim_bottom_in, R.anim.anim_top_out);
-
-                marqueeView1.setOnItemClickListener(new MarqueeView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position, TextView textView) {
-                        Toast.makeText(mActivity, textView.getText().toString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-                marqueeView2.setOnItemClickListener(new MarqueeView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position, TextView textView) {
-                        Toast.makeText(mActivity, textView.getText().toString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
             }
         };
-        mAdapters.add(newsAdapter);
+        mAdapters.add(titleAdapter);
 
 
         GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);

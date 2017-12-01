@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
      */
     @BindView(R.id.fab_call)
     ImageView fabCall;
-
+    ImageView aa=findViewById(R.id.fab_call);
     @Override
     public void initData(Bundle bundle) {
 

@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.whombang.app.features.shop.activity.CommodityDetailsActivity">
+    android:orientation="vertical">
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:background="#ec0f38"
+          android:layout_height="48dp">
+          <ImageView
+              android:id="@+id/imgBack"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentStart="true"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="18dp"
+              android:layout_marginStart="18dp"
+              app:srcCompat="@mipmap/back_green" />
+          <com.gxz.PagerSlidingTabStrip
+              android:id="@+id/psts_tabs"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:layout_gravity="center"
+              android:textColor="#ffffff"
+              android:textSize="15sp"
+              android:layout_centerHorizontal="true"
+              app:pstsDividerColor="@android:color/transparent"
+              app:pstsDividerPaddingTopBottom="0dp"
+              app:pstsIndicatorColor="#ffffff"
+              app:pstsIndicatorHeight="2dp"
+              app:pstsScaleZoomMax="0.0"
+              app:pstsShouldExpand="false"
+              app:pstsSmoothScrollWhenClickTab="false"
+              app:pstsTabPaddingLeftRight="12dp"
+              app:pstsTextAllCaps="false"
+              app:pstsTextSelectedColor="#ffffff"
+              app:pstsUnderlineHeight="0dp" />
 
-</android.support.constraint.ConstraintLayout>
+          <TextView
+              android:id="@+id/tv_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignTop="@+id/imgBack"
+              android:text="@string/img_deta"
+              android:layout_centerHorizontal="true"
+              android:textSize="15sp"
+              android:visibility="gone"
+              />
+      </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

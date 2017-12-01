@@ -56,5 +56,7 @@
     <string name="my_user_information">用户信息</string>
     <string name="my_setting">通用设置</string>
     <string name="my_about">关于我们</string>
+    <string name="img_deta">图文详情</string>
+
 
 </resources>

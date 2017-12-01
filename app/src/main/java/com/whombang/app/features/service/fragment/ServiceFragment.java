@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
+import com.bumptech.glide.Glide;
 import com.whombang.app.R;
 import com.whombang.app.adapter.BaseDelegateAdapter;
 import com.whombang.app.adapter.SpikeContentAdapter;
@@ -37,9 +38,11 @@ import butterknife.BindView;
 import static com.whombang.app.adapter.MyCenterAdapter.BANNER_VIEW_TYPE;
 import static com.whombang.app.adapter.MyCenterAdapter.DIVIDER_VIEW_TYPE;
 import static com.whombang.app.adapter.MyCenterAdapter.FUN_VIEW_TYPE;
+import static com.whombang.app.features.home.fragment.HomeFragment.Config.GRID_URL;
+import static com.whombang.app.features.home.fragment.HomeFragment.Config.GRID_VIEW_TYPE;
 
 /**
- * 服务
+ * 服务首页
  */
 public class ServiceFragment extends BaseFragment {
     @BindView(R.id.service_recyclerview)
@@ -67,7 +70,6 @@ public class ServiceFragment extends BaseFragment {
         RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
         mRecyclerView.setRecycledViewPool(viewPool);
         viewPool.setMaxRecycledViews(0, 10);
-
         DelegateAdapter delegateAdapter = new DelegateAdapter(layoutManager, true);
         mRecyclerView.setAdapter(delegateAdapter);
 
@@ -120,7 +122,7 @@ public class ServiceFragment extends BaseFragment {
             public void onBindViewHolder(BaseViewHolder holder, int position) {
                 super.onBindViewHolder(holder, position);
               TextView title= holder.getView(R.id.title_name);
-              title.setText("家政");
+              title.setText("精选服务");
               ImageView img=holder.getView(R.id.title_image);
               img.setImageResource(R.mipmap.title_image1);
             }
@@ -145,74 +147,93 @@ public class ServiceFragment extends BaseFragment {
 
         };
         mAdapters.add(serviceAdapter);
-        LinearLayoutHelper titleLayoutHelper2 = new LinearLayoutHelper();
-        titleLayoutHelper2.setMargin(0, 10, 0, 10);
-
-        BaseDelegateAdapter titleAdapter2 = new BaseDelegateAdapter(mActivity, titleLayoutHelper2
-                , R.layout.title_view, 1, DIVIDER_VIEW_TYPE) {
+        //服务列表
+        BaseDelegateAdapter serviceListAdapter = new BaseDelegateAdapter(mActivity,  new LinearLayoutHelper(), R.layout.vlayout_grid
+                , 12, GRID_VIEW_TYPE) {
             @Override
-            public void onBindViewHolder(BaseViewHolder holder, int position) {
+            public void onBindViewHolder(BaseViewHolder holder, final int position) {
                 super.onBindViewHolder(holder, position);
-                TextView title= holder.getView(R.id.title_name);
-                title.setText("维修");
-                ImageView img=holder.getView(R.id.title_image);
-                img.setImageResource(R.mipmap.title_image1);
+                int item = GRID_URL[position];
+                ImageView iv = holder.getView(R.id.iv);
+                Glide.with(mActivity).load(item).into(iv);
+
+                iv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(mActivity, "item" + position, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         };
-        mAdapters.add(titleAdapter2);
-
-        BaseDelegateAdapter serviceAdapter2 = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
-                , R.layout.wb_service_spike_content_layout, 1, FUN_VIEW_TYPE) {
-            @Override
-            public void onBindViewHolder(BaseViewHolder holder, int position) {
-                super.onBindViewHolder(holder, position);
-                RecyclerView recyclerView=holder.getView(R.id.spike_content_view);
-                recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false));
-                List<ServiceEntity> entities=new LinkedList<>();
-                for (int i = 0; i < 10; i++) {
-                    ServiceEntity entity=new ServiceEntity();
-                    entities.add(entity);
-                }
-                SpikeContentAdapter adapter = new SpikeContentAdapter(R.layout.homerecycle_item_spike_content, entities);
-                recyclerView.setAdapter(adapter);
-            }
-
-        };
-        mAdapters.add(serviceAdapter2);
-        LinearLayoutHelper titleLayoutHelper3 = new LinearLayoutHelper();
-        titleLayoutHelper2.setMargin(0, 10, 0, 10);
-
-        BaseDelegateAdapter titleAdapter3 = new BaseDelegateAdapter(mActivity, titleLayoutHelper3
-                , R.layout.title_view, 1, DIVIDER_VIEW_TYPE) {
-            @Override
-            public void onBindViewHolder(BaseViewHolder holder, int position) {
-                super.onBindViewHolder(holder, position);
-                TextView title= holder.getView(R.id.title_name);
-                title.setText("法律咨询");
-                ImageView img=holder.getView(R.id.title_image);
-                img.setImageResource(R.mipmap.title_image1);
-            }
-        };
-        mAdapters.add(titleAdapter3);
-
-        BaseDelegateAdapter serviceAdapter3 = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
-                , R.layout.wb_service_spike_content_layout, 1, FUN_VIEW_TYPE) {
-            @Override
-            public void onBindViewHolder(BaseViewHolder holder, int position) {
-                super.onBindViewHolder(holder, position);
-                RecyclerView recyclerView=holder.getView(R.id.spike_content_view);
-                recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false));
-                List<ServiceEntity> entities=new LinkedList<>();
-                for (int i = 0; i < 10; i++) {
-                    ServiceEntity entity=new ServiceEntity();
-                    entities.add(entity);
-                }
-                SpikeContentAdapter adapter = new SpikeContentAdapter(R.layout.homerecycle_item_spike_content, entities);
-                recyclerView.setAdapter(adapter);
-            }
-
-        };
-        mAdapters.add(serviceAdapter3);
+        mAdapters.add(serviceListAdapter);
+//        LinearLayoutHelper titleLayoutHelper2 = new LinearLayoutHelper();
+//        titleLayoutHelper2.setMargin(0, 10, 0, 10);
+//
+//        BaseDelegateAdapter titleAdapter2 = new BaseDelegateAdapter(mActivity, titleLayoutHelper2
+//                , R.layout.title_view, 1, DIVIDER_VIEW_TYPE) {
+//            @Override
+//            public void onBindViewHolder(BaseViewHolder holder, int position) {
+//                super.onBindViewHolder(holder, position);
+//                TextView title= holder.getView(R.id.title_name);
+//                title.setText("维修");
+//                ImageView img=holder.getView(R.id.title_image);
+//                img.setImageResource(R.mipmap.title_image1);
+//            }
+//        };
+//        mAdapters.add(titleAdapter2);
+//
+//        BaseDelegateAdapter serviceAdapter2 = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
+//                , R.layout.wb_service_spike_content_layout, 1, FUN_VIEW_TYPE) {
+//            @Override
+//            public void onBindViewHolder(BaseViewHolder holder, int position) {
+//                super.onBindViewHolder(holder, position);
+//                RecyclerView recyclerView=holder.getView(R.id.spike_content_view);
+//                recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false));
+//                List<ServiceEntity> entities=new LinkedList<>();
+//                for (int i = 0; i < 10; i++) {
+//                    ServiceEntity entity=new ServiceEntity();
+//                    entities.add(entity);
+//                }
+//                SpikeContentAdapter adapter = new SpikeContentAdapter(R.layout.homerecycle_item_spike_content, entities);
+//                recyclerView.setAdapter(adapter);
+//            }
+//
+//        };
+//        mAdapters.add(serviceAdapter2);
+//        LinearLayoutHelper titleLayoutHelper3 = new LinearLayoutHelper();
+//        titleLayoutHelper2.setMargin(0, 10, 0, 10);
+//
+//        BaseDelegateAdapter titleAdapter3 = new BaseDelegateAdapter(mActivity, titleLayoutHelper3
+//                , R.layout.title_view, 1, DIVIDER_VIEW_TYPE) {
+//            @Override
+//            public void onBindViewHolder(BaseViewHolder holder, int position) {
+//                super.onBindViewHolder(holder, position);
+//                TextView title= holder.getView(R.id.title_name);
+//                title.setText("法律咨询");
+//                ImageView img=holder.getView(R.id.title_image);
+//                img.setImageResource(R.mipmap.title_image1);
+//            }
+//        };
+//        mAdapters.add(titleAdapter3);
+//
+//        BaseDelegateAdapter serviceAdapter3 = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
+//                , R.layout.wb_service_spike_content_layout, 1, FUN_VIEW_TYPE) {
+//            @Override
+//            public void onBindViewHolder(BaseViewHolder holder, int position) {
+//                super.onBindViewHolder(holder, position);
+//                RecyclerView recyclerView=holder.getView(R.id.spike_content_view);
+//                recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false));
+//                List<ServiceEntity> entities=new LinkedList<>();
+//                for (int i = 0; i < 10; i++) {
+//                    ServiceEntity entity=new ServiceEntity();
+//                    entities.add(entity);
+//                }
+//                SpikeContentAdapter adapter = new SpikeContentAdapter(R.layout.homerecycle_item_spike_content, entities);
+//                recyclerView.setAdapter(adapter);
+//            }
+//
+//        };
+//        mAdapters.add(serviceAdapter3);
         //设置适配器
         delegateAdapter.setAdapters(mAdapters);
     }

@@ -59,6 +59,7 @@ public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDi
     WBHeaderView mPtrFrame;
     @BindView(R.id.rv_home)
     RecyclerView mRecyclerView;
+
     private List<DelegateAdapter.Adapter> mAdapters; //存放各个模块的适配器
 
     public interface Config {
