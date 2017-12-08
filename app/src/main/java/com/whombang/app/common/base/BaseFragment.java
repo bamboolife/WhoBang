@@ -2,6 +2,7 @@ package com.whombang.app.common.base;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -47,6 +48,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         contentView=inflater.inflate(bindLayout(),null);
         ButterKnife.bind(this,contentView);
+        initInjector();
         return contentView;
     }
 
@@ -64,6 +66,15 @@ public abstract class BaseFragment extends Fragment implements IBaseView{
         initView(savedInstanceState,contentView);
         doBusiness();
     }
+    /**
+     * 绑定布局
+     */
+    @LayoutRes
+    protected abstract int bindLayout();
+    /**
+     * Dagger 注入
+     */
+    protected abstract void initInjector();
 
     @Override
     public void onDestroyView() {

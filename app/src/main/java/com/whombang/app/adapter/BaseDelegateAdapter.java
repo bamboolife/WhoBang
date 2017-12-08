@@ -10,8 +10,7 @@ import com.whombang.app.common.baseadapter.BaseViewHolder;
 
 
 /**
- * 基类适配器
- * Created by zxl on 2017/8/28.
+ * vlayout的使用：基类适配器
  */
 
 public class BaseDelegateAdapter extends DelegateAdapter.Adapter<BaseViewHolder> {

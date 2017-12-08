@@ -10,6 +10,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
+import com.whombang.app.R;
+
 /**
  * Created by ctrun on 2017/7/29.
  */

@@ -73,6 +73,11 @@ public class VoiceActivity extends BaseActivity implements View.OnClickListener{
     }
 
     @Override
+    protected void initInjector() {
+
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View view) {
         findViewById(R.id.iat_recognize).setOnClickListener(this);
         findViewById(R.id.iat_recognize_stream).setOnClickListener(VoiceActivity.this);

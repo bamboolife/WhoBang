@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity {
      */
     @BindView(R.id.fab_call)
     ImageView fabCall;
-    ImageView aa=findViewById(R.id.fab_call);
     @Override
     public void initData(Bundle bundle) {
 
@@ -52,6 +51,11 @@ public class MainActivity extends BaseActivity {
     @Override
     public int bindLayout() {
         return R.layout.activity_main_layout;
+    }
+
+    @Override
+    protected void initInjector() {
+
     }
 
     @Override

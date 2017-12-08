@@ -82,6 +82,11 @@ public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDi
     }
 
     @Override
+    protected void initInjector() {
+
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View view) {
         initPtrFrame();
 

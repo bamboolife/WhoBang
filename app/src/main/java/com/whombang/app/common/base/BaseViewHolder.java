@@ -15,7 +15,7 @@ import com.whombang.app.common.view.NumControlerView;
 
 
 /**
- * Created by 博 on 2017/7/12.
+ *
  */
 
 public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

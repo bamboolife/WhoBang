@@ -22,6 +22,7 @@ import com.whombang.app.adapter.BaseDelegateAdapter;
 import com.whombang.app.adapter.MyCenterAdapter;
 import com.whombang.app.common.base.BaseFragment;
 import com.whombang.app.common.baseadapter.BaseViewHolder;
+import com.whombang.app.common.config.ViewType;
 import com.whombang.app.common.entity.MyCenterEntity;
 import com.whombang.app.entity.CenterEntity;
 import com.whombang.app.listener.BannerClickListener;
@@ -41,9 +42,6 @@ import static com.whombang.app.features.shop.fragment.ShopFragment.Config.GRID_V
  * 个人中心
  */
 public class MyCenterFragment extends BaseFragment {
-    private static final int TYPE_VIEW_HEAD=0;
-    private static final int TYPE_VIEW_LIST=1;
-    private static final int TYPE_VIEW_BOTTOM=2;
     @BindView(R.id.work_recyclerview)
     RecyclerView mRecyclerView;
     List<CenterEntity> entityList;
@@ -61,6 +59,11 @@ public class MyCenterFragment extends BaseFragment {
     }
 
     @Override
+    protected void initInjector() {
+
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View view) {
         mAdapters = new LinkedList<>();
         layoutManager = new VirtualLayoutManager(mActivity);
@@ -73,19 +76,29 @@ public class MyCenterFragment extends BaseFragment {
         //1头部
         DelegateAdapter delegateAdapter = new DelegateAdapter(layoutManager, true);
         mRecyclerView.setAdapter(delegateAdapter);
+        final View.OnClickListener listener=new View.OnClickListener(){
 
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/user/login").navigation();
+            }
+        };
         BaseDelegateAdapter headAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
-                , R.layout.item_work_banner, 1, TYPE_VIEW_HEAD) {
+                , R.layout.item_work_banner, 1, ViewType.VIEW_TYPE_HEAD) {
             @Override
             public void onBindViewHolder(BaseViewHolder holder, int position) {
                 super.onBindViewHolder(holder, position);
-
+                 ImageView imgHead=holder.getView(R.id.avatar);
+                 TextView tvLogin=holder.getView(R.id.tv_user_tip);
+                 imgHead.setOnClickListener(listener);
+                 tvLogin.setOnClickListener(listener);
             }
         };
+
         mAdapters.add(headAdapter);
         //2功能列表
         BaseDelegateAdapter functionAdapter = new BaseDelegateAdapter(mActivity,  new LinearLayoutHelper(), R.layout.item_work_func
-                , 7, GRID_VIEW_TYPE) {
+                , 7, ViewType.VIEW_TYPE_LIST) {
             @Override
             public void onBindViewHolder(BaseViewHolder holder, final int position) {
                 super.onBindViewHolder(holder, position);

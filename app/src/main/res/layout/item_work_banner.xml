@@ -38,7 +38,7 @@
             <!--android:textSize="@dimen/font_middle"/>-->
 
         <TextView
-            android:id="@+id/nameView"
+            android:id="@+id/tv_user_tip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

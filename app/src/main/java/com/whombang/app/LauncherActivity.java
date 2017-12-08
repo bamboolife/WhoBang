@@ -3,8 +3,6 @@ package com.whombang.app;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +11,13 @@ import android.widget.ImageView;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.whombang.app.common.base.BaseActivity;
 import com.whombang.app.common.systembar.SystemBarManager;
+import com.whombang.app.mvp.component.DaggerLauncherActivityComponent;
+import com.whombang.app.mvp.module.LauncherActivityModule;
+import com.whombang.app.mvp.presenter.LauncherPresenter;
 
 import java.util.concurrent.TimeUnit;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import io.reactivex.Flowable;
@@ -26,9 +29,12 @@ import io.reactivex.functions.Function;
 /**
  * 启动页
  */
-public class LanucherActivity extends BaseActivity {
+public class LauncherActivity extends BaseActivity {
     @BindView(R.id.img_logo)
     ImageView imgLogo;
+
+    @Inject
+    LauncherPresenter presenter;
     @Override
     public void initData(Bundle bundle) {
 
@@ -40,8 +46,15 @@ public class LanucherActivity extends BaseActivity {
     }
 
     @Override
+    protected void initInjector() {
+
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View view) {
         SystemBarManager.setStatusBarLightMode(this,android.R.color.transparent);
+        DaggerLauncherActivityComponent.builder().launcherActivityModule(new LauncherActivityModule(this)).build().inject(this);
+
     }
 
     @Override

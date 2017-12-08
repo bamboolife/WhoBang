@@ -1,7 +1,6 @@
-package com.whombang.app.features.mycenter.activity;
+package com.whombang.app.features.login;
 
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,11 +12,11 @@ import com.whombang.app.common.view.TitleBar;
 import butterknife.BindView;
 
 /**
- * 关于我们
+ * 登陆页面
  */
-@Route(path = "/my/about")
-public class AboutActivity extends BaseActivity {
-    @BindView(R.id.about_titlebar)
+@Route(path = "/user/login")
+public class LoginActivity extends BaseActivity {
+    @BindView(R.id.login_titlebar)
     TitleBar titleBar;
 
     @Override
@@ -27,7 +26,7 @@ public class AboutActivity extends BaseActivity {
 
     @Override
     public int bindLayout() {
-        return R.layout.wb_about_layout;
+        return R.layout.wb_login_layout;
     }
 
     @Override
@@ -50,7 +49,7 @@ public class AboutActivity extends BaseActivity {
                 finish();
             }
         });
-        titleBar.setTitle("关于我们");
+        titleBar.setTitle("登陆");
         titleBar.setTitleColor(Color.WHITE);
         titleBar.setDividerColor(Color.GRAY);
 

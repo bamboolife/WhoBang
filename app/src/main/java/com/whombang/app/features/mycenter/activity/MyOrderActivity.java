@@ -29,6 +29,11 @@ public class MyOrderActivity extends BaseActivity {
     }
 
     @Override
+    protected void initInjector() {
+
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View view) {
        initTitleBar();
     }

@@ -1,11 +1,8 @@
 package com.whombang.app.adapter;
 
-import android.graphics.Paint;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.whombang.app.R;
 import com.whombang.app.common.baseadapter.BaseQuickAdapter;
@@ -17,7 +14,7 @@ import java.util.List;
 
 
 /**
- * @author：admin on 2017/3/30 18:00.
+ *
  */
 
 public class SpikeContentAdapter extends BaseQuickAdapter<ServiceEntity,BaseViewHolder> {

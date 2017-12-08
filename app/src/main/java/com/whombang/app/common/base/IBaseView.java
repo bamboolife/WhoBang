@@ -18,7 +18,7 @@ public interface IBaseView {
     /**
      * 绑定布局
      */
-    int bindLayout();
+    //int bindLayout();
 
     /**
      * 初始化view

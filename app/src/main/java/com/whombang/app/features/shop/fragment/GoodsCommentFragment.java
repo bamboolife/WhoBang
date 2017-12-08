@@ -26,6 +26,11 @@ public class GoodsCommentFragment extends BaseFragment {
     }
 
     @Override
+    protected void initInjector() {
+
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View view) {
 
     }

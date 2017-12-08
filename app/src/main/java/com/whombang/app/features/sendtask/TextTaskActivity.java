@@ -24,6 +24,11 @@ public class TextTaskActivity extends BaseActivity {
     }
 
     @Override
+    protected void initInjector() {
+
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View view) {
         ARouter.getInstance().build("/service/map").navigation();
     }

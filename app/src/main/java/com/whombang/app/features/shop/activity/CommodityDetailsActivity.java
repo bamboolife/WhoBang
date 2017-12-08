@@ -43,6 +43,11 @@ public class CommodityDetailsActivity extends BaseActivity {
     }
 
     @Override
+    protected void initInjector() {
+
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View view) {
         fragmentList = new ArrayList<>();
         fragmentList.add(new GoodsInfoFragment());

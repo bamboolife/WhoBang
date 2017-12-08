@@ -65,6 +65,11 @@ public class ShopFragment extends BaseFragment {
     }
 
     @Override
+    protected void initInjector() {
+
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View view) {
         mAdapters = new LinkedList<>();
         //初始化
