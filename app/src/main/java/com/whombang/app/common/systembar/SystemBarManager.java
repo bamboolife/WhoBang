@@ -9,11 +9,14 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.whombang.app.features.login.LoginActivity;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -84,6 +87,7 @@ public class SystemBarManager {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //判断是否为小米或魅族手机，如果是则将状态栏文字改为黑色
             if (MIUISetStatusBarLightMode(activity, true) || FlymeSetStatusBarLightMode(activity, true)) {
+                Log.i("wwww","111111111111111111111111111111");
                 //设置状态栏为指定颜色
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0
                     activity.getWindow().setStatusBarColor(color);
@@ -92,6 +96,7 @@ public class SystemBarManager {
                     setStatusBarColor(activity, color);
                 }
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Log.i("wwww","2222222222222222222222222222");
                 //如果是6.0以上将状态栏文字改为黑色，并设置状态栏颜色
                 activity.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);

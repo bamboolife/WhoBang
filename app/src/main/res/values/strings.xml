@@ -11,7 +11,7 @@
 
     <string name="popup_phone">打电话</string>
     <string name="popup_voice">语音</string>
-    <string name="popup_task">发布任务</string>
+    <string name="popup_task">文字输入</string>
 
     <string name="loading_text">加载中…</string>
     <string name="icon">icon</string>

@@ -63,9 +63,9 @@ public class MainActivity extends BaseActivity {
         SystemBarManager.translucentStatusBar(this,false);
         mNavigateTabBar.onRestoreInstanceState(savedInstanceState);
         mNavigateTabBar.addTab(HomeFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_home, R.mipmap.navigate_tab_home_selected, getString(R.string.tab_txt_home)));
-        mNavigateTabBar.addTab(ShopFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_shop, R.mipmap.navigate_tab_shop_selected, getString(R.string.tab_txt_shop)));
+       // mNavigateTabBar.addTab(ShopFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_shop, R.mipmap.navigate_tab_shop_selected, getString(R.string.tab_txt_shop)));
         mNavigateTabBar.addTab(null, new NavigateTabBar.TabParam(0, 0, ""));
-        mNavigateTabBar.addTab(ServiceFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_service, R.mipmap.navigate_tab_service_selected, getString(R.string.tab_txt_service)));
+      //  mNavigateTabBar.addTab(ServiceFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_service, R.mipmap.navigate_tab_service_selected, getString(R.string.tab_txt_service)));
         mNavigateTabBar.addTab(MyCenterFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_my, R.mipmap.navigate_tab_my_selected, getString(R.string.tab_txt_my)));
 
     }
@@ -79,8 +79,9 @@ public class MainActivity extends BaseActivity {
             public void onPopupMenu(int position) {
                 switch (position) {
                     case 1:
-                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:10010"));
-                        startActivity(intent);
+//                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:10010"));
+//                        startActivity(intent);
+                        ARouter.getInstance().build("/task/phone").navigation();
                       break;
                   case 2:
                       ARouter.getInstance().build("/task/voice").navigation();

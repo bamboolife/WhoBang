@@ -70,7 +70,8 @@
         <activity android:name=".features.mycenter.activity.AboutActivity" />
         <activity android:name=".features.mycenter.activity.CommonSettingActivity" />
         <activity android:name=".features.login.LoginActivity" />
-        <activity android:name=".features.login.RegisterActivity"></activity>
+        <activity android:name=".features.login.RegisterActivity" />
+        <activity android:name=".features.sendtask.ServicePhoneActivity"></activity>
     </application>
 
 </manifest>

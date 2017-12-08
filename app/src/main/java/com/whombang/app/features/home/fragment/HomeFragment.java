@@ -182,55 +182,55 @@ public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDi
         };
         mAdapters.add(newsAdapter);
 
-        LinearLayoutHelper titleLayoutHelper = new LinearLayoutHelper();
-        titleLayoutHelper.setMargin(0, 10, 0, 10);
-
-        BaseDelegateAdapter titleAdapter = new BaseDelegateAdapter(mActivity, titleLayoutHelper
-                , R.layout.title_view, 1, DIVIDER_VIEW_TYPE) {
-            @Override
-            public void onBindViewHolder(BaseViewHolder holder, int position) {
-                super.onBindViewHolder(holder, position);
-                TextView title= holder.getView(R.id.title_name);
-                title.setText("服务");
-                ImageView img=holder.getView(R.id.title_image);
-                img.setImageResource(R.mipmap.title_image1);
-            }
-        };
-        mAdapters.add(titleAdapter);
-
-        BaseDelegateAdapter serviceAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
-                , R.layout.wb_service_spike_content_layout, 1, FUN_VIEW_TYPE) {
-            @Override
-            public void onBindViewHolder(BaseViewHolder holder, int position) {
-                super.onBindViewHolder(holder, position);
-                RecyclerView recyclerView=holder.getView(R.id.spike_content_view);
-                recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false));
-                List<ServiceEntity> entities=new LinkedList<>();
-                for (int i = 0; i < 10; i++) {
-                    ServiceEntity entity=new ServiceEntity();
-                    entities.add(entity);
-                }
-                SpikeContentAdapter adapter = new SpikeContentAdapter(R.layout.homerecycle_item_spike_content, entities);
-                recyclerView.setAdapter(adapter);
-            }
-
-        };
-        mAdapters.add(serviceAdapter);
+//        LinearLayoutHelper titleLayoutHelper = new LinearLayoutHelper();
+//        titleLayoutHelper.setMargin(0, 10, 0, 10);
+//
+//        BaseDelegateAdapter titleAdapter = new BaseDelegateAdapter(mActivity, titleLayoutHelper
+//                , R.layout.title_view, 1, DIVIDER_VIEW_TYPE) {
+//            @Override
+//            public void onBindViewHolder(BaseViewHolder holder, int position) {
+//                super.onBindViewHolder(holder, position);
+//                TextView title= holder.getView(R.id.title_name);
+//                title.setText("服务");
+//                ImageView img=holder.getView(R.id.title_image);
+//                img.setImageResource(R.mipmap.title_image1);
+//            }
+//        };
+//        mAdapters.add(titleAdapter);
+//
+//        BaseDelegateAdapter serviceAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
+//                , R.layout.wb_service_spike_content_layout, 1, FUN_VIEW_TYPE) {
+//            @Override
+//            public void onBindViewHolder(BaseViewHolder holder, int position) {
+//                super.onBindViewHolder(holder, position);
+//                RecyclerView recyclerView=holder.getView(R.id.spike_content_view);
+//                recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false));
+//                List<ServiceEntity> entities=new LinkedList<>();
+//                for (int i = 0; i < 10; i++) {
+//                    ServiceEntity entity=new ServiceEntity();
+//                    entities.add(entity);
+//                }
+//                SpikeContentAdapter adapter = new SpikeContentAdapter(R.layout.homerecycle_item_spike_content, entities);
+//                recyclerView.setAdapter(adapter);
+//            }
+//
+//        };
+//        mAdapters.add(serviceAdapter);
         //banner
-        BaseDelegateAdapter imageAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
-                , R.layout.wb_img_tag_layout, 1, BANNER_VIEW_TYPE) {
-            @Override
-            public void onBindViewHolder(BaseViewHolder holder, int position) {
-                super.onBindViewHolder(holder, position);
-                ArrayList<String> arrayList = new ArrayList<>();
-                arrayList.add("http://bpic.wotucdn.com/11/66/23/55bOOOPIC3c_1024.jpg!/fw/780/quality/90/unsharp/true/compress/true/watermark/url/L2xvZ28ud2F0ZXIudjIucG5n/repeat/true");
-                arrayList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505470629546&di=194a9a92bfcb7754c5e4d19ff1515355&imgtype=0&src=http%3A%2F%2Fpics.jiancai.com%2Fimgextra%2Fimg01%2F656928666%2Fi1%2FT2_IffXdxaXXXXXXXX_%2521%2521656928666.jpg");
-               ImageView img=holder.getView(R.id.img_tag);
-                Glide.with(mActivity).load(arrayList.get(0)).into(img);
-            }
-        };
+//        BaseDelegateAdapter imageAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper()
+//                , R.layout.wb_img_tag_layout, 1, BANNER_VIEW_TYPE) {
+//            @Override
+//            public void onBindViewHolder(BaseViewHolder holder, int position) {
+//                super.onBindViewHolder(holder, position);
+//                ArrayList<String> arrayList = new ArrayList<>();
+//                arrayList.add("http://bpic.wotucdn.com/11/66/23/55bOOOPIC3c_1024.jpg!/fw/780/quality/90/unsharp/true/compress/true/watermark/url/L2xvZ28ud2F0ZXIudjIucG5n/repeat/true");
+//                arrayList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505470629546&di=194a9a92bfcb7754c5e4d19ff1515355&imgtype=0&src=http%3A%2F%2Fpics.jiancai.com%2Fimgextra%2Fimg01%2F656928666%2Fi1%2FT2_IffXdxaXXXXXXXX_%2521%2521656928666.jpg");
+//               ImageView img=holder.getView(R.id.img_tag);
+//                Glide.with(mActivity).load(arrayList.get(0)).into(img);
+//            }
+//        };
         //把轮播器添加到集合
-        mAdapters.add(imageAdapter);
+      //  mAdapters.add(imageAdapter);
         GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);
         gridLayoutHelper.setMargin(0, 0, 0, 0);
         gridLayoutHelper.setPadding(0, 0, 0, 0);

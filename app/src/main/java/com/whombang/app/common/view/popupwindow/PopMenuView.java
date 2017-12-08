@@ -140,9 +140,9 @@ public class PopMenuView {
      * 打开popupWindow执行的动画
      */
     private void openPopupWindowAction() {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mCloseIv, "rotation", 0f, 135f);
-        objectAnimator.setDuration(200);
-        objectAnimator.start();
+//        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mCloseIv, "rotation", 0f, 135f);
+//        objectAnimator.setDuration(200);
+//        objectAnimator.start();
 
         startAnimation(this.mTest1Layout, 500, this.mAnimatorProperty);
         startAnimation(this.mTest2Layout, 430, this.mAnimatorProperty);
@@ -155,9 +155,9 @@ public class PopMenuView {
      */
     public void closePopupWindowAction() {
         if (this.mCloseIv != null && this.mCloseLayout != null) {
-            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(this.mCloseIv, "rotation", 135f, 0f);
-            objectAnimator.setDuration(300);
-            objectAnimator.start();
+//            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(this.mCloseIv, "rotation", 135f, 0f);
+//            objectAnimator.setDuration(300);
+//            objectAnimator.start();
 
             closeAnimation(this.mTest1Layout, 300, this.mTop);
             closeAnimation(this.mTest2Layout, 200, this.mTop);

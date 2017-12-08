@@ -27,9 +27,9 @@
             >
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/img5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/pw_phone"
                 />
 
             <TextView
@@ -38,7 +38,7 @@
                 android:layout_marginTop="4dp"
                 android:text="@string/popup_phone"
                 android:textColor="#333333"
-                android:textSize="12sp"
+                android:textSize="15sp"
                 />
         </LinearLayout>
 
@@ -54,9 +54,9 @@
 
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/img8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/pw_voice"
                 />
 
             <TextView
@@ -65,7 +65,7 @@
                 android:layout_marginTop="4dp"
                 android:text="@string/popup_voice"
                 android:textColor="#333333"
-                android:textSize="12sp"
+                android:textSize="15sp"
                 />
         </LinearLayout>
 
@@ -81,9 +81,9 @@
 
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/img7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/pw_text"
                 />
 
             <TextView
@@ -92,7 +92,7 @@
                 android:layout_marginTop="4dp"
                 android:text="@string/popup_task"
                 android:textColor="#333333"
-                android:textSize="12sp"
+                android:textSize="15sp"
                 />
         </LinearLayout>
 
@@ -110,19 +110,19 @@
         android:layout_marginBottom="16dp"
         >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/bg"
-            />
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:src="@mipmap/ic_close_pw"-->
+            <!--/>-->
 
         <ImageView
             android:id="@+id/close_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@mipmap/add"
+            android:src="@mipmap/ic_close_pw"
             />
     </RelativeLayout>
 
