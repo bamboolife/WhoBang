@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.gxz.PagerSlidingTabStrip;
@@ -39,7 +38,7 @@ public class CommodityDetailsActivity extends BaseActivity {
 
     @Override
     public int bindLayout() {
-        return R.layout.activity_commodity_details;
+        return R.layout.wb_commodity_details_layout;
     }
 
     @Override
@@ -49,6 +48,7 @@ public class CommodityDetailsActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState, View view) {
+        titleBar.setVisibility(View.GONE);
         fragmentList = new ArrayList<>();
         fragmentList.add(new GoodsInfoFragment());
         fragmentList.add(new GoodsDetailFragment());

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <include layout="@layout/wb_titlebar_layout"/>
       <RelativeLayout
           android:layout_width="match_parent"
           android:background="#ec0f38"
@@ -17,7 +18,7 @@
               android:layout_centerVertical="true"
               android:layout_marginLeft="18dp"
               android:layout_marginStart="18dp"
-              app:srcCompat="@mipmap/back_green" />
+              app:srcCompat="@mipmap/back_icon" />
           <com.gxz.PagerSlidingTabStrip
               android:id="@+id/psts_tabs"
               android:layout_width="wrap_content"

@@ -16,8 +16,6 @@ import butterknife.BindView;
  */
 @Route(path = "/user/login")
 public class LoginActivity extends BaseActivity {
-    @BindView(R.id.login_titlebar)
-    TitleBar titleBar;
 
     @Override
     public void initData(Bundle bundle) {
@@ -36,25 +34,9 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState, View view) {
-        initTitleBar();
-    }
-
-    private void initTitleBar() {
-        titleBar.setImmersive(false);
-        titleBar.setBackgroundColor(Color.parseColor("#ec0f38"));
-        titleBar.setLeftImageResource(R.mipmap.back_green);
-        titleBar.setLeftClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         titleBar.setTitle("登陆");
-        titleBar.setTitleColor(Color.WHITE);
-        titleBar.setDividerColor(Color.GRAY);
-
-        titleBar.setActionTextColor(Color.WHITE);
     }
+
 
     @Override
     public void doBusiness() {

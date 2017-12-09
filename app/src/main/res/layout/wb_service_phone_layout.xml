@@ -8,10 +8,7 @@
     android:background="@color/snow"
     tools:context="com.whombang.app.features.sendtask.ServicePhoneActivity">
 
-    <com.whombang.app.common.view.TitleBar
-        android:id="@+id/phone_titlebar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+   <include layout="@layout/wb_titlebar_layout"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

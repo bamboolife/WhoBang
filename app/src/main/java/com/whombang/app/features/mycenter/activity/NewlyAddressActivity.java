@@ -1,6 +1,5 @@
 package com.whombang.app.features.mycenter.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,12 +18,12 @@ public class NewlyAddressActivity extends BaseActivity {
 
     @Override
     public int bindLayout() {
-        return R.layout.activity_newly_address;
+        return R.layout.wb_newly_address_layout;
     }
 
     @Override
     protected void initInjector() {
-
+       titleBar.setTitle("新增地址");
     }
 
     @Override

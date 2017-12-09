@@ -1,12 +1,9 @@
 package com.whombang.app.features;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -19,8 +16,6 @@ import com.whombang.app.common.view.popupwindow.PopMenuView;
 import com.whombang.app.common.view.tabbar.NavigateTabBar;
 import com.whombang.app.features.home.fragment.HomeFragment;
 import com.whombang.app.features.mycenter.fragment.MyCenterFragment;
-import com.whombang.app.features.service.fragment.ServiceFragment;
-import com.whombang.app.features.shop.fragment.ShopFragment;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 import com.yanzhenjie.permission.PermissionYes;
@@ -50,7 +45,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public int bindLayout() {
-        return R.layout.activity_main_layout;
+        return R.layout.wb_main_layout;
     }
 
     @Override
@@ -61,6 +56,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView(Bundle savedInstanceState, View view) {
         SystemBarManager.translucentStatusBar(this,false);
+        titleBar.setVisibility(View.GONE);
         mNavigateTabBar.onRestoreInstanceState(savedInstanceState);
         mNavigateTabBar.addTab(HomeFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_home, R.mipmap.navigate_tab_home_selected, getString(R.string.tab_txt_home)));
        // mNavigateTabBar.addTab(ShopFragment.class, new NavigateTabBar.TabParam(R.mipmap.navigate_tab_shop, R.mipmap.navigate_tab_shop_selected, getString(R.string.tab_txt_shop)));

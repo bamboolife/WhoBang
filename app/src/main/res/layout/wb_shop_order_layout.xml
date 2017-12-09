@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.whombang.app.features.mycenter.activity.MyEvaluateActivity">
-   <com.whombang.app.common.view.TitleBar
-       android:id="@+id/evaluate_titlebar"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"/>
+    tools:context="com.whombang.app.features.mycenter.activity.ShopOrderActivity">
+
+    <include layout="@layout/wb_titlebar_layout"/>
 </LinearLayout>

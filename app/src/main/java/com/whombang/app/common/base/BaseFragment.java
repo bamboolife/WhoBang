@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 /**
  * Description:fragment的基类 注意：除非特殊，要不必须继承
  * Company:
- * Created by sundy.jiang on 2017/11/10.
+ * Created by 蒋建伟 on 2017/11/10.
  */
 
 public abstract class BaseFragment extends Fragment implements IBaseView{

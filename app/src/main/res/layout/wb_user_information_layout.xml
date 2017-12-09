@@ -5,8 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.whombang.app.features.mycenter.activity.UserInformationActivity">
-<com.whombang.app.common.view.TitleBar
-    android:id="@+id/user_titlebar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    <include layout="@layout/wb_titlebar_layout"/>
 </android.support.constraint.ConstraintLayout>

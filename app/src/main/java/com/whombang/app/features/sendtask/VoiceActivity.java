@@ -65,7 +65,7 @@ public class VoiceActivity extends BaseActivity {
 
     @Override
     public int bindLayout() {
-        return R.layout.activity_voice;
+        return R.layout.wb_voice_layout;
     }
 
     @Override

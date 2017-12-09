@@ -10,9 +10,9 @@ import com.whombang.app.mvp.component.DaggerApplicationComponent;
 import com.whombang.app.mvp.module.ApplicationModule;
 
 /**
- * Description:
+ * Description:全局初始化和属性在此定义
  * Company:
- * Created by sundy.jiang on 2017/11/10.
+ * Created by 蒋建伟 on 2017/11/10.
  */
 
 public class BaseApplication extends MultiDexApplication {

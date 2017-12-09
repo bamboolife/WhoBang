@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Description:Adapter的基类
+ * Company:
+ * Created by 蒋建伟 on 2017/11/10.
  */
-
 public abstract class BaseAdapter<T , H extends BaseViewHolder> extends RecyclerView.Adapter<BaseViewHolder> {
 
     protected List<T> mDatas ;

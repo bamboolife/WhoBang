@@ -5,10 +5,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import com.whombang.app.common.view.SwipeBackLayout;
-
-
 /**
- * 滑动退出Activity
+ * Description:滑动退出Activity
+ * Company:
+ * Created by 蒋建伟 on 2017/11/10.
  */
 public abstract class BaseSwipeBackActivity<T extends IBasePresenter> extends BaseActivity<T> {
 
