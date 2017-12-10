@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.whombang.app.R;
 import com.whombang.app.common.base.BaseActivity;
 
@@ -29,7 +30,7 @@ public class TextTaskActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState, View view) {
-       // ARouter.getInstance().build("/service/map").navigation();
+        ARouter.getInstance().build("/service/map").navigation();
         titleBar.setTitle("发布服务");
     }
 

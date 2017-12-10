@@ -101,7 +101,7 @@ public class MainActivity extends BaseActivity {
     private void requestPermission() {
         AndPermission.with(this)
            .requestCode(REQUEST_CODE_PERMISSION_MULTI)
-                .permission(Permission.PHONE,Permission.STORAGE,Permission.MICROPHONE,Permission.CONTACTS)
+                .permission(Permission.PHONE,Permission.STORAGE,Permission.MICROPHONE,Permission.LOCATION)
                 .callback(this)
                 .start();
 

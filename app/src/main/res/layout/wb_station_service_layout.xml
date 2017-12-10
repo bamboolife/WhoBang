@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.whombang.app.features.sendtask.StationServiceActivity"
     tools:showIn="@layout/wb_station_service_layout">
-
+    <include layout="@layout/wb_titlebar_layout"/>
     <com.amap.api.maps.MapView
         android:id="@+id/service_map"
         android:layout_width="match_parent"
