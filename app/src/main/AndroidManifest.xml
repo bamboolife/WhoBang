@@ -74,13 +74,7 @@
         <activity android:name=".features.login.LoginActivity" />
         <activity android:name=".features.login.RegisterActivity" />
         <activity android:name=".features.sendtask.ServicePhoneActivity" />
-<<<<<<< HEAD
         <activity android:name=".features.GuideActivity" />
-=======
-        <activity android:name=".features.GuideActivity"
-            android:theme="@style/AppTheme.Splash"
-            />
->>>>>>> 49c6d0431aea7da1795b6bd48954f5ff1eafc750
     </application>
 
 </manifest>

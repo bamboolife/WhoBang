@@ -62,10 +62,6 @@ public class LauncherActivity extends BaseActivity {
     public void doBusiness() {
         titleBar.setVisibility(View.GONE);
         presenter.onStartAnimAndJump(imgLogo);
-<<<<<<< HEAD
-=======
-        finish();
->>>>>>> 49c6d0431aea7da1795b6bd48954f5ff1eafc750
 //        arouterJump();
 //        countdown(4).subscribe(new Consumer<Long>() {
 //            @Override
