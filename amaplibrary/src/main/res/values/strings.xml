@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AMapLibrary</string>
+    <string name="platform">台</string>
 </resources>
