@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.alibaba.android.vlayout.layout.GridLayoutHelper;
@@ -53,7 +54,7 @@ import static com.whombang.app.features.home.fragment.HomeFragment.Config.NEWS_V
  * HomeFragment
  * 首页
  */
-public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDistanceListener{
+public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDistanceListener {
 
     @BindView(R.id.head_view)
     WBHeaderView mPtrFrame;
@@ -69,8 +70,9 @@ public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDi
         int NEWS_VIEW_TYPE = 3;
         int TITLE_VIEW_TYPE = 4;
         int GRID_VIEW_TYPE = 5;
-        int[] GRID_URL = {R.mipmap.flashsale1, R.mipmap.flashsale2, R.mipmap.flashsale3, R.mipmap.flashsale4,R.mipmap.flashsale1, R.mipmap.flashsale2, R.mipmap.flashsale3, R.mipmap.flashsale4,R.mipmap.flashsale1, R.mipmap.flashsale2, R.mipmap.flashsale3, R.mipmap.flashsale4};
+        int[] GRID_URL = {R.mipmap.flashsale1, R.mipmap.flashsale2, R.mipmap.flashsale3, R.mipmap.flashsale4, R.mipmap.flashsale1, R.mipmap.flashsale2, R.mipmap.flashsale3, R.mipmap.flashsale4, R.mipmap.flashsale1, R.mipmap.flashsale2, R.mipmap.flashsale3, R.mipmap.flashsale4};
     }
+
     @Override
     public void initData(Bundle bundle) {
 
@@ -230,7 +232,7 @@ public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDi
 //            }
 //        };
         //把轮播器添加到集合
-      //  mAdapters.add(imageAdapter);
+        //  mAdapters.add(imageAdapter);
         GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);
         gridLayoutHelper.setMargin(0, 0, 0, 0);
         gridLayoutHelper.setPadding(0, 0, 0, 0);
@@ -238,7 +240,7 @@ public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDi
         gridLayoutHelper.setHGap(0);// 控制子元素之间的水平间距
         gridLayoutHelper.setBgColor(Color.WHITE);
         gridLayoutHelper.setAutoExpand(true);//是否自动填充空白区域
-        BaseDelegateAdapter girdAdapter = new BaseDelegateAdapter(mActivity,  new LinearLayoutHelper(), R.layout.vlayout_grid
+        BaseDelegateAdapter girdAdapter = new BaseDelegateAdapter(mActivity, new LinearLayoutHelper(), R.layout.vlayout_grid
                 , 12, GRID_VIEW_TYPE) {
             @Override
             public void onBindViewHolder(BaseViewHolder holder, final int position) {
@@ -251,6 +253,7 @@ public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDi
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(mActivity, "item" + position, Toast.LENGTH_SHORT).show();
+                        ARouter.getInstance().build("/shop/details").navigation();
                     }
                 });
             }
@@ -270,7 +273,7 @@ public class HomeFragment extends BaseFragment implements WBHeaderView.RefreshDi
                     public void run() {
                         mPtrFrame.refreshComplete();
                     }
-                },2000);
+                }, 2000);
             }
         });
     }

@@ -6,7 +6,8 @@
  <!--<color name="colorPrimary">#ec0f38</color>-->
     <!--<color name="colorPrimaryDark">#ec0f38</color>-->
     <!--<color name="colorAccent">#ec0f38</color>-->
-
+    <color name="blue1">#5DA49F</color>
+    <color name="blue2">#6BBEB8</color>
     <color name="navigate_tabbar_text_normal">#ff333333</color>
     <color name="item_border_color">#666666</color>
     <color name="item_default_color">#22EEEEEE</color>

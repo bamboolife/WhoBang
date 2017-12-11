@@ -1,6 +1,5 @@
 package com.whombang.app;
 
-import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -63,14 +62,14 @@ public class LauncherActivity extends BaseActivity {
     public void doBusiness() {
         titleBar.setVisibility(View.GONE);
         presenter.onStartAnimAndJump(imgLogo);
-        arouterJump();
-        countdown(4).subscribe(new Consumer<Long>() {
-            @Override
-            public void accept(Long aLong) throws Exception {
-                Log.i("www", "accept: 倒计时： " + aLong);
-            }
-        });
-        Log.i("wwww", "sha1: ="+sHA1());
+//        arouterJump();
+//        countdown(4).subscribe(new Consumer<Long>() {
+//            @Override
+//            public void accept(Long aLong) throws Exception {
+//                Log.i("www", "accept: 倒计时： " + aLong);
+//            }
+//        });
+      //  Log.i("wwww", "sha1: ="+sHA1());
     }
 
     public String sHA1() {
