@@ -3,9 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MatchMatch">
+<<<<<<< HEAD
     <cn.bingoogolapple.bgabanner.BGAGuideLinkageLayout style="@style/MatchMatch">
 
         <cn.bingoogolapple.bgabanner.BGABanner
+=======
+    <com.whombang.app.common.view.banner.BGAGuideLinkageLayout style="@style/MatchMatch">
+
+        <com.whombang.app.common.view.banner.BGABanner
+>>>>>>> 49c6d0431aea7da1795b6bd48954f5ff1eafc750
             android:id="@+id/banner_guide_background"
             style="@style/MatchMatch"
             app:banner_pageChangeDuration="1000"
@@ -15,7 +21,11 @@
             app:banner_pointTopBottomMargin="15dp"
             app:banner_transitionEffect="alpha" />
 
+<<<<<<< HEAD
         <cn.bingoogolapple.bgabanner.BGABanner
+=======
+        <com.whombang.app.common.view.banner.BGABanner
+>>>>>>> 49c6d0431aea7da1795b6bd48954f5ff1eafc750
             android:id="@+id/banner_guide_foreground"
             style="@style/MatchMatch"
             app:banner_pageChangeDuration="1000"
@@ -24,7 +34,11 @@
             app:banner_pointDrawable="@drawable/bga_banner_selector_point_hollow"
             app:banner_pointTopBottomMargin="15dp"
             app:banner_transitionEffect="alpha" />
+<<<<<<< HEAD
     </cn.bingoogolapple.bgabanner.BGAGuideLinkageLayout>
+=======
+    </com.whombang.app.common.view.banner.BGAGuideLinkageLayout>
+>>>>>>> 49c6d0431aea7da1795b6bd48954f5ff1eafc750
 
     <TextView
         android:id="@+id/tv_guide_skip"

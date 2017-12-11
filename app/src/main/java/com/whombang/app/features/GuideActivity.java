@@ -7,7 +7,10 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.whombang.app.R;
 import com.whombang.app.common.base.BaseActivity;
+<<<<<<< HEAD
 import com.whombang.app.common.systembar.SystemBarManager;
+=======
+>>>>>>> 49c6d0431aea7da1795b6bd48954f5ff1eafc750
 
 
 import butterknife.BindView;
@@ -41,8 +44,12 @@ public class GuideActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState, View view) {
+<<<<<<< HEAD
         titleBar.setVisibility(View.GONE);
         SystemBarManager.translucentStatusBar(this, false);
+=======
+      titleBar.setVisibility(View.GONE);
+>>>>>>> 49c6d0431aea7da1795b6bd48954f5ff1eafc750
     }
 
     @Override
@@ -51,8 +58,14 @@ public class GuideActivity extends BaseActivity {
         mBackgroundBanner.setEnterSkipViewIdAndDelegate(R.id.btn_guide_enter, R.id.tv_guide_skip, new BGABanner.GuideDelegate() {
             @Override
             public void onClickEnterOrSkip() {
+<<<<<<< HEAD
                 ARouter.getInstance().build("/user/login").navigation();
                 finish();
+=======
+               // ARouter.getInstance().build("/main/tab").navigation();
+                ARouter.getInstance().build("/user/login").navigation();
+
+>>>>>>> 49c6d0431aea7da1795b6bd48954f5ff1eafc750
             }
         });
         // 设置数据源
