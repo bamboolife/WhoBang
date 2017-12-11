@@ -6,8 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.whombang.app.common.base.BaseActivity;
+import com.whombang.app.common.net.BaseSubscriber;
+import com.whombang.app.common.net.ExceptionHandle;
+import com.whombang.app.common.net.RetrofitClient;
 import com.whombang.app.mvp.component.DaggerLauncherActivityComponent;
 import com.whombang.app.mvp.module.LauncherActivityModule;
 import com.whombang.app.mvp.presenter.LauncherPresenter;
@@ -25,6 +30,8 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 
 /**
  * 启动页
@@ -70,6 +77,27 @@ public class LauncherActivity extends BaseActivity {
 //            }
 //        });
       //  Log.i("wwww", "sha1: ="+sHA1());
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), "");
+
+        RetrofitClient.getInstance(this)
+                .createBaseApi()
+                .json("WhomBangServer/getFirstPageParam", body)
+                .subscribe(new BaseSubscriber<ResponseBody>(LauncherActivity.this) {
+
+
+                    @Override
+                    public void onError(ExceptionHandle.ResponeThrowable e) {
+                        Log.e("Lyk", e.getMessage());
+                        Toast.makeText(LauncherActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+Log.i("wwww","res="+responseBody);
+                        Toast.makeText(LauncherActivity.this, responseBody.toString(), Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 
     public String sHA1() {

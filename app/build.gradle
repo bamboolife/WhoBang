@@ -35,6 +35,17 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.6'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile ('com.squareup.retrofit2:adapter-rxjava2:2.3.0')
+            {
+                transitive=true
+                exclude group: 'com.squareup.okhttp3'
+                exclude group: 'com.squareup.okio'
+                // exclude group: 'io.reactivex', module: 'rxjava'
+            }
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
     implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
     implementation 'com.alibaba:arouter-api:1.2.4'
     implementation 'com.alibaba:arouter-annotation:1.0.4'

@@ -75,6 +75,7 @@
         <activity android:name=".features.login.RegisterActivity" />
         <activity android:name=".features.sendtask.ServicePhoneActivity" />
         <activity android:name=".features.GuideActivity" />
+        <activity android:name=".features.login.ForgetActivity"></activity>
     </application>
 
 </manifest>
