@@ -41,9 +41,9 @@
             android:name="com.amap.api.v2.apikey"
             android:value="d69640a56e82b4e6dd8a7c3e51149a73" />
 
-        <activity android:name=".LauncherActivity"
-            android:theme="@style/AppTheme.Splash"
-            >
+        <activity
+            android:name=".LauncherActivity"
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -73,7 +73,10 @@
         <activity android:name=".features.mycenter.activity.CommonSettingActivity" />
         <activity android:name=".features.login.LoginActivity" />
         <activity android:name=".features.login.RegisterActivity" />
-        <activity android:name=".features.sendtask.ServicePhoneActivity"></activity>
+        <activity android:name=".features.sendtask.ServicePhoneActivity" />
+        <activity android:name=".features.GuideActivity"
+            android:theme="@style/AppTheme.Splash"
+            />
     </application>
 
 </manifest>

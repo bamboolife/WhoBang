@@ -42,7 +42,8 @@ public class LauncherPresenter {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                ARouter.getInstance().build("/main/tab").navigation();
+               // ARouter.getInstance().build("/main/tab").navigation();
+                ARouter.getInstance().build("/main/guide").navigation();
             }
 
             @Override

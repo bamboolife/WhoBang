@@ -121,7 +121,8 @@ public class MyCenterFragment extends BaseFragment {
                      public void onClick(View v) {
                          switch (position){
                              case 0:
-                                 ARouter.getInstance().build("/order/service").navigation();
+                                // ARouter.getInstance().build("/order/service").navigation();
+                                 ARouter.getInstance().build("/address/manager").navigation();
                                  break;
                              case 1:
                                  ARouter.getInstance().build("/order/shop").navigation();
