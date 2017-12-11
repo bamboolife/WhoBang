@@ -81,8 +81,8 @@ public class StationServiceActivity extends BaseActivity implements LocationSour
     }
 
     private void setUpMap() {
-        aMap.setLocationSource(this);// 设置定位监听
-        aMap.getUiSettings().setMyLocationButtonEnabled(true);// 设置默认定位按钮是否显示
+        //aMap.setLocationSource(this);// 设置定位监听
+        //aMap.getUiSettings().setMyLocationButtonEnabled(true);// 设置默认定位按钮是否显示
         aMap.setMyLocationEnabled(true);// 设置为true表示显示定位层并可触发定位，false表示隐藏定位层并不可触发定位，默认是false
         //setupLocationStyle();
     }
@@ -142,6 +142,7 @@ deactivate();
 
     @Override
     public void onLocationChanged(AMapLocation amapLocation) {
+        Log.i("wwwww", "onLocationChanged:............. ");
         if (mListener != null && amapLocation != null) {
             if (amapLocation != null
                     && amapLocation.getErrorCode() == 0) {
@@ -154,17 +155,18 @@ deactivate();
                             .anchor(0.5f, 0.5f));
 
                     //首次定位,选择移动到地图中心点并修改级别到15级
-                    aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-                } else {
-
-                    if(useMoveToLocationWithMapMode) {
-                        //二次以后定位，使用sdk中没有的模式，让地图和小蓝点一起移动到中心点（类似导航锁车时的效果）
-                        startMoveLocationAndMap(latLng);
-                    } else {
-                        startChangeLocation(latLng);
-                    }
-
+                    //aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
                 }
+//                else {
+//
+//                    if(useMoveToLocationWithMapMode) {
+//                        //二次以后定位，使用sdk中没有的模式，让地图和小蓝点一起移动到中心点（类似导航锁车时的效果）
+//                        startMoveLocationAndMap(latLng);
+//                    } else {
+//                        startChangeLocation(latLng);
+//                    }
+//
+//                }
 
 
             } else {
@@ -241,6 +243,7 @@ deactivate();
     @Override
     public void activate(OnLocationChangedListener onLocationChangedListener) {
         mListener = onLocationChangedListener;
+        Log.i("wwww", "activate: 111111111111");
         if (mlocationClient == null) {
             mlocationClient = new AMapLocationClient(this);
             mLocationOption = new AMapLocationClientOption();
